@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101413"><title>OBS Post Production · Estúdio</title>
+  <script>try{document.documentElement.dataset.theme=localStorage.getItem('recording-theme')||'graphite'}catch{document.documentElement.dataset.theme='graphite'}</script>
+  <link rel="icon" type="image/svg+xml" href="/static/favicon.svg">
+  <link rel="stylesheet" href="/static/style.css?v=20261027-retake-review-3">
+  <link rel="stylesheet" href="/static/instrument-theme.css?v=20261027-retake-review-3">
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Ir para o conteúdo</a>
+  <div class="app-shell">
+    <header class="studio-header">
+      <div class="studio-nav-frame">
+        <a class="brand" href="/" data-nav="gallery"><span class="brand-mark" aria-hidden="true">◉</span><span>OBS Post<span class="brand-sub" id="health">Conectando ao estúdio…</span></span></a>
+        <nav class="main-nav" aria-label="Navegação principal"><a href="/" data-nav="gallery" class="nav-link active"><span aria-hidden="true">▦</span> Gravações</a><a href="/settings" data-nav="settings" class="nav-link"><span aria-hidden="true">⚙</span> Configurações</a></nav>
+      </div>
+    </header>
+    <main id="main-content" class="main-content">
+      <header class="topbar"><div><p class="eyebrow">SEU ESTÚDIO LOCAL</p><h1 id="page-title">Gravações</h1></div><button type="button" id="import-button" data-import-recording>＋ Nova gravação</button></header>
+      <dialog id="import-dialog" aria-labelledby="import-title" aria-describedby="import-description">
+        <form method="dialog" class="import-dialog-heading"><div><p class="eyebrow">IMPORTAR DO OBS</p><h2 id="import-title">Nova gravação</h2></div><button type="submit" class="secondary" aria-label="Fechar nova gravação">Fechar</button></form>
+        <p id="import-description">Escolha um vídeo MP4 ou MKV. Depois, configure o idioma e a qualidade da análise.</p>
+        <div id="import-dropzone" class="import-dropzone"><strong>Arraste seu vídeo para cá</strong><span>ou escolha um arquivo do computador</span><label for="file">Vídeo da gravação</label><input id="file" type="file" accept=".mkv,.mp4,video/mp4,video/x-matroska"></div>
+        <p id="import-feedback" role="status" aria-live="polite"></p>
+      </dialog>
+      <p id="import-status" role="status" aria-live="polite" hidden></p>
+      <div id="gallery-page" hidden></div>
+      <div id="project-page" hidden><div id="workspace"></div></div>
+      <div id="settings-page" hidden>
+        <div class="page-intro"><h2>Configurações do estúdio</h2><p>Gerencie o canal, confira a análise com IA e escolha a aparência para todos os projetos.</p></div>
+        <div class="settings-grid">
+          <section class="surface settings-card"><div class="card-heading"><div class="service-icon" aria-hidden="true">▶</div><div><h3>YouTube</h3><p>Conta e autorização de publicação</p></div><span id="youtube-state" class="status">Verificando…</span></div><p id="youtube-message" class="muted">Carregando conexão…</p><div class="row-actions"><button id="settings-connect">Conectar YouTube <span aria-hidden="true">↗</span></button><button id="settings-disconnect" class="secondary" hidden>Desconectar</button></div><div class="settings-facts"><div><span>Visibilidade inicial</span><strong>Privado</strong></div><div><span>Legendas automáticas</span><strong>Original + traduções selecionadas</strong></div><div><span>Aplicado a</span><strong>Todos os projetos</strong></div></div><p class="note">O envio começa após a sua aprovação dentro do projeto. A publicação pública é feita no YouTube Studio.</p></section>
+          <section class="surface settings-card"><div class="card-heading"><div class="service-icon" aria-hidden="true">✧</div><div><h3>Provedor de análise</h3><p>Escolha o modelo para texto e imagens</p></div><span id="ai-state" class="status">Verificando…</span></div><label class="field" for="ai-provider">Modelo de análise<select id="ai-provider"><option value="opencode">OpenCode · MiMo V2.6 Flash Free</option><option value="codex">Codex · GPT-6 Luna · Medium</option></select></label><label class="field" for="visual-frame-limit">Quantidade de frames visuais <output id="visual-frame-limit-value">8</output><input id="visual-frame-limit" type="number" min="2" max="1024" step="1" value="8"></label><p class="muted">O texto da transcrição é enviado ao provedor selecionado. Frames são agrupados em grades com até 128 quadros por imagem; cada quadro mostra seu índice e horário acima dele. São enviadas até 8 imagens de grade. Aumentar a quantidade de frames aumenta o volume enviado; o vídeo e o áudio permanecem locais.</p><p id="ai-message" class="note" role="status">Verificando disponibilidade do provedor selecionado…</p><p class="note">A preferência é global para novas análises. Cada execução mantém a quantidade que recebeu ao começar.</p></section>
+          <section class="surface settings-card appearance-card"><div class="card-heading"><div class="service-icon appearance-icon" aria-hidden="true">◐</div><div><h3>Aparência do estúdio</h3><p>Escolha o material de trabalho. A preferência fica neste navegador.</p></div></div><fieldset class="theme-options" aria-label="Tema do estúdio"><legend>Tema</legend><button type="button" class="theme-option" data-theme-choice="graphite" aria-pressed="false"><span class="theme-swatch swatch-graphite" aria-hidden="true"></span><span><strong>Graphite</strong><small>Carvão · âmbar</small></span><span class="theme-check" aria-hidden="true">✓</span></button><button type="button" class="theme-option" data-theme-choice="chalk" aria-pressed="false"><span class="theme-swatch swatch-chalk" aria-hidden="true"></span><span><strong>Chalk · claro</strong><small>Papel mineral · vermelhão</small></span><span class="theme-check" aria-hidden="true">✓</span></button><button type="button" class="theme-option" data-theme-choice="workshop" aria-pressed="false"><span class="theme-swatch swatch-workshop" aria-hidden="true"></span><span><strong>Workshop</strong><small>Papel quente · pinho</small></span><span class="theme-check" aria-hidden="true">✓</span></button></fieldset></section>
+          <section class="surface settings-card"><p class="eyebrow">CONFIGURAÇÃO DO APLICATIVO</p><h3>Credencial OAuth</h3><p class="muted">Importe o JSON de um cliente Web criado no Google Cloud para conectar seu canal.</p><div id="oauth-state" class="config-file">Verificando credencial…</div><label class="button secondary" id="oauth-label">Importar JSON OAuth<input id="oauth-file" type="file" accept=".json,application/json" aria-label="Importar credencial OAuth do Google"></label><p class="note">Trocar a credencial exige conectar o canal novamente. O arquivo fica salvo apenas neste estúdio.</p><label class="field">URI de redirecionamento<div class="copy-field"><input id="redirect-uri" readonly aria-label="URI de redirecionamento OAuth"><button id="copy-redirect" class="secondary" aria-label="Copiar URI de redirecionamento">Copiar</button></div></label><details class="setup-guide"><summary>Como obter a credencial no Google Cloud</summary><ol><li>Habilite a YouTube Data API v3 no seu projeto.</li><li>Configure o consentimento OAuth e adicione sua conta como usuário de teste, se necessário.</li><li>Crie um cliente OAuth do tipo <strong>Aplicativo Web</strong>.</li><li>Adicione o URI de redirecionamento acima e baixe o JSON.</li><li>Importe o arquivo aqui e conecte seu canal.</li></ol></details></section>
+        </div>
+      </div>
+    </main>
+  </div>
+  <div id="toast" role="status" aria-live="polite"></div>
+  <script src="/static/app.js?v=20261027-retake-review-3" defer></script>
+</body>
+</html>

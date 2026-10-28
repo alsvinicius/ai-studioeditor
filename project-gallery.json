@@ -1,0 +1,7 @@
+{
+  "version": 1,
+  "project": { "name": "OBS Post Production", "familyName": "recording", "path": "." },
+  "services": [
+    { "id": "web", "name": "Estúdio", "portEnv": "WEB_PORT", "interfaceUrl": "http://127.0.0.1:8000", "healthPath": "/api/health" }
+  ]
+}

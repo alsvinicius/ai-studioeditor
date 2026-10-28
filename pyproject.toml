@@ -1,0 +1,37 @@
+[project]
+name = "obs-post-production"
+version = "0.1.0"
+description = "Local-first post-production workflow for OBS recordings"
+requires-python = ">=3.12"
+dependencies = [
+  "fastapi>=0.115,<1",
+  "uvicorn[standard]>=0.30,<1",
+  "python-multipart>=0.0.9,<1",
+  "faster-whisper>=1.1,<2",
+  "av>=11,<19",
+  "argostranslate>=1.10,<1.11",
+  "google-api-python-client>=2.150,<3",
+  "google-auth-oauthlib>=1.2,<2",
+  "opencv-python-headless>=4.10,<5",
+  "torch>=2.14,<2.15",
+]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project.optional-dependencies]
+test = ["httpx>=0.28,<1"]
+
+[tool.uv]
+package = false
+
+# Keep the default install on CPU-only PyTorch wheels; the general PyPI index
+# can resolve proprietary CUDA/NVIDIA runtime packages.
+[[tool.uv.index]]
+name = "pytorch-cpu"
+url = "https://download.pytorch.org/whl/cpu"
+explicit = true
+
+[tool.uv.sources]
+torch = { index = "pytorch-cpu" }

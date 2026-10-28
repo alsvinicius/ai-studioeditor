@@ -1,0 +1,550 @@
+{
+  "schemaVersion": 4,
+  "generatedAt": "2026-10-20T03:06:54.842107+00:00",
+  "application": "recording",
+  "scope": "Landing route plus the listed secondary states; Chalk, Graphite and Workshop at 1440, 390 and 320 CSS px.",
+  "method": "Headless Google Chrome via Puppeteer. Computed-style screening of visible text, target geometry, page overflow, browser errors and reduced-motion declarations. Text metrics were measured before screenshot sanitization. Persistent WebP captures replace private labels; Steam artwork is blurred.",
+  "dataSource": "Existing local library, GET requests only; screenshots replace project names and dates before capture.",
+  "mutations": "Non-GET/HEAD application requests blocked. Theme selection may update browser-local storage; no product records changed.",
+  "limitations": [
+    "Other routes and workflows outside the enumerated checks were not audited.",
+    "Contrast screening estimates gradient endpoint/background composites; it does not certify every pixel, opacity, graphical boundary or assistive technology behavior.",
+    "Basic target screening excludes links inside paragraphs; only visible text-bearing elements were screened.",
+    "A Tab key and computed focus style were checked, but full keyboard flows, dialog focus return and screen-reader behavior are not certified.",
+    "Reduced motion was checked from computed declarations; animation behavior over time was not recorded. Theme persistence across browser restarts was not tested."
+  ],
+  "visualChecks": [
+    {
+      "theme": "chalk",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "horizontalOverflow": false,
+      "visibleTextElements": 120,
+      "textBelow12pxCount": 0,
+      "targetBelow24pxCount": 0,
+      "estimatedTextContrastFailureCount": 0,
+      "pageJavaScriptErrorCount": 0,
+      "screenshot": "instrument-review/recording-chalk-1440.webp"
+    },
+    {
+      "theme": "chalk",
+      "viewport": {
+        "width": 390,
+        "height": 1000
+      },
+      "horizontalOverflow": false,
+      "visibleTextElements": 120,
+      "textBelow12pxCount": 0,
+      "targetBelow24pxCount": 0,
+      "estimatedTextContrastFailureCount": 0,
+      "pageJavaScriptErrorCount": 0,
+      "screenshot": "instrument-review/recording-chalk-390.webp"
+    },
+    {
+      "theme": "chalk",
+      "viewport": {
+        "width": 320,
+        "height": 1000
+      },
+      "horizontalOverflow": false,
+      "visibleTextElements": 120,
+      "textBelow12pxCount": 0,
+      "targetBelow24pxCount": 0,
+      "estimatedTextContrastFailureCount": 0,
+      "pageJavaScriptErrorCount": 0,
+      "screenshot": "instrument-review/recording-chalk-320.webp"
+    },
+    {
+      "theme": "graphite",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "horizontalOverflow": false,
+      "visibleTextElements": 120,
+      "textBelow12pxCount": 0,
+      "targetBelow24pxCount": 0,
+      "estimatedTextContrastFailureCount": 0,
+      "pageJavaScriptErrorCount": 0,
+      "screenshot": "instrument-review/recording-graphite-1440.webp"
+    },
+    {
+      "theme": "graphite",
+      "viewport": {
+        "width": 390,
+        "height": 1000
+      },
+      "horizontalOverflow": false,
+      "visibleTextElements": 120,
+      "textBelow12pxCount": 0,
+      "targetBelow24pxCount": 0,
+      "estimatedTextContrastFailureCount": 0,
+      "pageJavaScriptErrorCount": 0,
+      "screenshot": "instrument-review/recording-graphite-390.webp"
+    },
+    {
+      "theme": "graphite",
+      "viewport": {
+        "width": 320,
+        "height": 1000
+      },
+      "horizontalOverflow": false,
+      "visibleTextElements": 120,
+      "textBelow12pxCount": 0,
+      "targetBelow24pxCount": 0,
+      "estimatedTextContrastFailureCount": 0,
+      "pageJavaScriptErrorCount": 0,
+      "screenshot": "instrument-review/recording-graphite-320.webp"
+    },
+    {
+      "theme": "workshop",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "horizontalOverflow": false,
+      "visibleTextElements": 120,
+      "textBelow12pxCount": 0,
+      "targetBelow24pxCount": 0,
+      "estimatedTextContrastFailureCount": 0,
+      "pageJavaScriptErrorCount": 0,
+      "screenshot": "instrument-review/recording-workshop-1440.webp"
+    },
+    {
+      "theme": "workshop",
+      "viewport": {
+        "width": 390,
+        "height": 1000
+      },
+      "horizontalOverflow": false,
+      "visibleTextElements": 120,
+      "textBelow12pxCount": 0,
+      "targetBelow24pxCount": 0,
+      "estimatedTextContrastFailureCount": 0,
+      "pageJavaScriptErrorCount": 0,
+      "screenshot": "instrument-review/recording-workshop-390.webp"
+    },
+    {
+      "theme": "workshop",
+      "viewport": {
+        "width": 320,
+        "height": 1000
+      },
+      "horizontalOverflow": false,
+      "visibleTextElements": 120,
+      "textBelow12pxCount": 0,
+      "targetBelow24pxCount": 0,
+      "estimatedTextContrastFailureCount": 0,
+      "pageJavaScriptErrorCount": 0,
+      "screenshot": "instrument-review/recording-workshop-320.webp"
+    }
+  ],
+  "searchChecks": [
+    {
+      "width": 1440,
+      "continuousTyping": true,
+      "middleInsertion": true,
+      "clearToEmpty": true,
+      "query": "synthetic query; no saved data changed",
+      "renderPreservesFocusAndRange": true,
+      "readOnlyListPreservesFocusAndRange": true
+    },
+    {
+      "width": 390,
+      "continuousTyping": true,
+      "middleInsertion": true,
+      "clearToEmpty": true,
+      "query": "synthetic query; no saved data changed",
+      "renderPreservesFocusAndRange": true,
+      "readOnlyListPreservesFocusAndRange": true
+    },
+    {
+      "width": 320,
+      "continuousTyping": true,
+      "middleInsertion": true,
+      "clearToEmpty": true,
+      "query": "synthetic query; no saved data changed",
+      "renderPreservesFocusAndRange": true,
+      "readOnlyListPreservesFocusAndRange": true
+    }
+  ],
+  "secondaryRouteMethod": "Headless Chrome via Puppeteer; synthetic GitHub and scheduler GET fixtures, non-GET/HEAD requests blocked; metrics measured before screenshot anonymization.",
+  "secondaryRouteChecks": [
+    {
+      "theme": "chalk",
+      "state": "settings",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "screenshot": "instrument-review/recording-chalk-settings-1440.webp",
+      "stateVerified": true,
+      "horizontalOverflow": false,
+      "visibleTextElements": 60,
+      "textBelow12pxCount": 0,
+      "targetBelow24pxCount": 0,
+      "estimatedTextContrastFailureCount": 0,
+      "pageJavaScriptErrorCount": 0,
+      "keyboard": {
+        "tag": "A",
+        "role": null,
+        "label": "Ir para o conteúdo",
+        "focusVisible": true,
+        "activeElement": "A"
+      },
+      "themeReload": {
+        "supported": true,
+        "persisted": true
+      },
+      "invalidEnter": null,
+      "reducedMotion": {
+        "preference": true,
+        "animatedElements": 0,
+        "transitioningElements": 0,
+        "scrollBehavior": "auto"
+      },
+      "mutationRequestsBlocked": true
+    },
+    {
+      "theme": "chalk",
+      "state": "settings",
+      "viewport": {
+        "width": 390,
+        "height": 1000
+      },
+      "screenshot": "instrument-review/recording-chalk-settings-390.webp",
+      "stateVerified": true,
+      "horizontalOverflow": false,
+      "visibleTextElements": 60,
+      "textBelow12pxCount": 0,
+      "targetBelow24pxCount": 0,
+      "estimatedTextContrastFailureCount": 0,
+      "pageJavaScriptErrorCount": 0,
+      "keyboard": {
+        "tag": "A",
+        "role": null,
+        "label": "◉\nOBS Post\nEstúdio online · processamento local",
+        "focusVisible": true,
+        "activeElement": "A"
+      },
+      "themeReload": {
+        "supported": true,
+        "persisted": true
+      },
+      "invalidEnter": null,
+      "reducedMotion": {
+        "preference": true,
+        "animatedElements": 0,
+        "transitioningElements": 0,
+        "scrollBehavior": "auto"
+      },
+      "mutationRequestsBlocked": true
+    },
+    {
+      "theme": "chalk",
+      "state": "settings",
+      "viewport": {
+        "width": 320,
+        "height": 1000
+      },
+      "screenshot": "instrument-review/recording-chalk-settings-320.webp",
+      "stateVerified": true,
+      "horizontalOverflow": false,
+      "visibleTextElements": 60,
+      "textBelow12pxCount": 0,
+      "targetBelow24pxCount": 0,
+      "estimatedTextContrastFailureCount": 0,
+      "pageJavaScriptErrorCount": 0,
+      "keyboard": {
+        "tag": "A",
+        "role": null,
+        "label": "▦\nGravações",
+        "focusVisible": true,
+        "activeElement": "A"
+      },
+      "themeReload": {
+        "supported": true,
+        "persisted": true
+      },
+      "invalidEnter": null,
+      "reducedMotion": {
+        "preference": true,
+        "animatedElements": 0,
+        "transitioningElements": 0,
+        "scrollBehavior": "auto"
+      },
+      "mutationRequestsBlocked": true
+    },
+    {
+      "theme": "graphite",
+      "state": "settings",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "screenshot": "instrument-review/recording-graphite-settings-1440.webp",
+      "stateVerified": true,
+      "horizontalOverflow": false,
+      "visibleTextElements": 60,
+      "textBelow12pxCount": 0,
+      "targetBelow24pxCount": 0,
+      "estimatedTextContrastFailureCount": 0,
+      "pageJavaScriptErrorCount": 0,
+      "keyboard": {
+        "tag": "A",
+        "role": null,
+        "label": "Ir para o conteúdo",
+        "focusVisible": true,
+        "activeElement": "A"
+      },
+      "themeReload": {
+        "supported": true,
+        "persisted": true
+      },
+      "invalidEnter": null,
+      "reducedMotion": {
+        "preference": true,
+        "animatedElements": 0,
+        "transitioningElements": 0,
+        "scrollBehavior": "auto"
+      },
+      "mutationRequestsBlocked": true
+    },
+    {
+      "theme": "graphite",
+      "state": "settings",
+      "viewport": {
+        "width": 390,
+        "height": 1000
+      },
+      "screenshot": "instrument-review/recording-graphite-settings-390.webp",
+      "stateVerified": true,
+      "horizontalOverflow": false,
+      "visibleTextElements": 60,
+      "textBelow12pxCount": 0,
+      "targetBelow24pxCount": 0,
+      "estimatedTextContrastFailureCount": 0,
+      "pageJavaScriptErrorCount": 0,
+      "keyboard": {
+        "tag": "A",
+        "role": null,
+        "label": "◉\nOBS Post\nEstúdio online · processamento local",
+        "focusVisible": true,
+        "activeElement": "A"
+      },
+      "themeReload": {
+        "supported": true,
+        "persisted": true
+      },
+      "invalidEnter": null,
+      "reducedMotion": {
+        "preference": true,
+        "animatedElements": 0,
+        "transitioningElements": 0,
+        "scrollBehavior": "auto"
+      },
+      "mutationRequestsBlocked": true
+    },
+    {
+      "theme": "graphite",
+      "state": "settings",
+      "viewport": {
+        "width": 320,
+        "height": 1000
+      },
+      "screenshot": "instrument-review/recording-graphite-settings-320.webp",
+      "stateVerified": true,
+      "horizontalOverflow": false,
+      "visibleTextElements": 60,
+      "textBelow12pxCount": 0,
+      "targetBelow24pxCount": 0,
+      "estimatedTextContrastFailureCount": 0,
+      "pageJavaScriptErrorCount": 0,
+      "keyboard": {
+        "tag": "A",
+        "role": null,
+        "label": "▦\nGravações",
+        "focusVisible": true,
+        "activeElement": "A"
+      },
+      "themeReload": {
+        "supported": true,
+        "persisted": true
+      },
+      "invalidEnter": null,
+      "reducedMotion": {
+        "preference": true,
+        "animatedElements": 0,
+        "transitioningElements": 0,
+        "scrollBehavior": "auto"
+      },
+      "mutationRequestsBlocked": true
+    },
+    {
+      "theme": "workshop",
+      "state": "settings",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "screenshot": "instrument-review/recording-workshop-settings-1440.webp",
+      "stateVerified": true,
+      "horizontalOverflow": false,
+      "visibleTextElements": 60,
+      "textBelow12pxCount": 0,
+      "targetBelow24pxCount": 0,
+      "estimatedTextContrastFailureCount": 0,
+      "pageJavaScriptErrorCount": 0,
+      "keyboard": {
+        "tag": "A",
+        "role": null,
+        "label": "Ir para o conteúdo",
+        "focusVisible": true,
+        "activeElement": "A"
+      },
+      "themeReload": {
+        "supported": true,
+        "persisted": true
+      },
+      "invalidEnter": null,
+      "reducedMotion": {
+        "preference": true,
+        "animatedElements": 0,
+        "transitioningElements": 0,
+        "scrollBehavior": "auto"
+      },
+      "mutationRequestsBlocked": true
+    },
+    {
+      "theme": "workshop",
+      "state": "settings",
+      "viewport": {
+        "width": 390,
+        "height": 1000
+      },
+      "screenshot": "instrument-review/recording-workshop-settings-390.webp",
+      "stateVerified": true,
+      "horizontalOverflow": false,
+      "visibleTextElements": 60,
+      "textBelow12pxCount": 0,
+      "targetBelow24pxCount": 0,
+      "estimatedTextContrastFailureCount": 0,
+      "pageJavaScriptErrorCount": 0,
+      "keyboard": {
+        "tag": "A",
+        "role": null,
+        "label": "◉\nOBS Post\nEstúdio online · processamento local",
+        "focusVisible": true,
+        "activeElement": "A"
+      },
+      "themeReload": {
+        "supported": true,
+        "persisted": true
+      },
+      "invalidEnter": null,
+      "reducedMotion": {
+        "preference": true,
+        "animatedElements": 0,
+        "transitioningElements": 0,
+        "scrollBehavior": "auto"
+      },
+      "mutationRequestsBlocked": true
+    },
+    {
+      "theme": "workshop",
+      "state": "settings",
+      "viewport": {
+        "width": 320,
+        "height": 1000
+      },
+      "screenshot": "instrument-review/recording-workshop-settings-320.webp",
+      "stateVerified": true,
+      "horizontalOverflow": false,
+      "visibleTextElements": 60,
+      "textBelow12pxCount": 0,
+      "targetBelow24pxCount": 0,
+      "estimatedTextContrastFailureCount": 0,
+      "pageJavaScriptErrorCount": 0,
+      "keyboard": {
+        "tag": "A",
+        "role": null,
+        "label": "▦\nGravações",
+        "focusVisible": true,
+        "activeElement": "A"
+      },
+      "themeReload": {
+        "supported": true,
+        "persisted": true
+      },
+      "invalidEnter": null,
+      "reducedMotion": {
+        "preference": true,
+        "animatedElements": 0,
+        "transitioningElements": 0,
+        "scrollBehavior": "auto"
+      },
+      "mutationRequestsBlocked": true
+    }
+  ],
+  "themeReloadChecks": [
+    {
+      "theme": "chalk",
+      "state": "settings",
+      "supported": true,
+      "persisted": true,
+      "result": null
+    },
+    {
+      "theme": "graphite",
+      "state": "settings",
+      "supported": true,
+      "persisted": true,
+      "result": null
+    },
+    {
+      "theme": "workshop",
+      "state": "settings",
+      "supported": true,
+      "persisted": true,
+      "result": null
+    }
+  ],
+  "invalidEnterChecks": [],
+  "evidenceCaptures": {
+    "primary": {
+      "captureId": "635ce229-8605-4461-80e4-ce540b63e58f",
+      "capturedAt": "2026-10-20T03:04:56.069Z",
+      "sourceFingerprints": {
+        "app/static/index.html": "ac0bd7c80f5af11455370ee8d3904bb15a25e99ca6b0c86da601d69dedf6c354",
+        "app/static/app.js": "eef810519874da849aa7b007f98c9d5b5cdca25b918d6c338eb31d8b1fab1700",
+        "app/static/instrument-theme.css": "b930c4ce90c558bf5079fb41a11ee9cf9dddd98d32be2e5a6b2ed0f38c49e1e8",
+        "app/static/style.css": "b2185cb12cef464163abd68affd0aad71a9051a54ca09e73893327a27be57cf8"
+      }
+    },
+    "secondary": {
+      "captureId": "4ef88642-46ab-4fca-bf4e-615861ee36fa",
+      "capturedAt": "2026-10-20T03:04:56.246Z",
+      "sourceFingerprints": {
+        "app/static/index.html": "ac0bd7c80f5af11455370ee8d3904bb15a25e99ca6b0c86da601d69dedf6c354",
+        "app/static/app.js": "eef810519874da849aa7b007f98c9d5b5cdca25b918d6c338eb31d8b1fab1700",
+        "app/static/instrument-theme.css": "b930c4ce90c558bf5079fb41a11ee9cf9dddd98d32be2e5a6b2ed0f38c49e1e8",
+        "app/static/style.css": "b2185cb12cef464163abd68affd0aad71a9051a54ca09e73893327a27be57cf8"
+      }
+    },
+    "consolidatedAt": "2026-10-20T03:06:54.842130+00:00",
+    "provenance": "both captures verified against project sources before staging"
+  },
+  "regression": {
+    "sourceIds": [
+      "REQ-006",
+      "REQ-008",
+      "DEC-021",
+      "TASK-017"
+    ],
+    "before": "Direct renderGallery and GET list refresh lost focus and selection range 2..5.",
+    "change": "Capture focused gallery filter and range before replacement, restore focus and selection afterward.",
+    "validation": "Read-only browser interactions at 1440/390/320; direct render and GET list refresh checked at 1440/390."
+  }
+}
