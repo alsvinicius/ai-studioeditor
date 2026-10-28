@@ -1,47 +1,97 @@
-# Como iniciar o aplicativo local
+# Como instalar e executar localmente
 
-Este guia descreve a execução em desenvolvimento. O uso do contêiner depende de um daemon Docker ativo.
+Este guia ajuda a preparar uma cópia local do estúdio e escolher entre execução direta no host ou Docker Compose. As duas opções mantêm projetos e modelos no computador. A execução por Compose usa FFmpeg dentro da imagem; a execução no host precisa de FFmpeg instalado no sistema.
 
-## Requisitos
+## O que você precisa
 
-- Python 3.12 ou posterior
-- `uv`
-- FFmpeg com `ffprobe`
-- Conexão de rede na primeira análise para baixar os modelos locais de transcrição e tradução
-- Para sugestões semânticas e revisão visual, configure pelo menos um executor: OpenCode autenticado no host ou Codex CLI autenticado no host. O OpenCode usa `opencode/mimo-v2.6-flash-free`; o Codex usa `gpt-6-luna` com esforço `medium`.
+### Para executar no host
 
-## Executar no host
+- Git, para clonar o repositório.
+- Python 3.12 ou posterior.
+- [`uv`](https://docs.astral.sh/uv/getting-started/installation/), para criar o ambiente e instalar as dependências Python a partir de `uv.lock`.
+- FFmpeg e `ffprobe`, acessíveis pelo `PATH`. O aplicativo usa ambos para inspecionar, analisar e exportar mídia.
+- Acesso à internet na primeira análise para baixar o modelo Whisper escolhido e, quando necessário, pacotes de tradução Argos.
 
-Na raiz do projeto, execute:
+### Para executar com Docker Compose
+
+- Git e Docker Engine com o plugin `docker compose`, ou Docker Desktop com o Compose disponível.
+- Daemon Docker iniciado e acessível ao seu usuário.
+- Uma CLI de análise autenticada no host para sugestões semânticas: OpenCode ou Codex. O Compose monta a CLI e o arquivo de autenticação do host no contêiner. Sem um provedor disponível, a aplicação ainda inicia e oferece sugestões locais baseadas em regras.
+
+Não é necessário instalar Python, `uv` ou FFmpeg no host para usar o caminho Compose: eles são incluídos na imagem. Também não é necessário Node.js para executar pelo host; os CLIs de IA são opcionais e instalados separadamente. Node.js é usado pela imagem Docker para fornecer esses CLIs.
+
+## Obter o código
 
 ```sh
+git clone https://github.com/alsvinicius/ai-studioeditor.git
+cd ai-studioeditor
+```
+
+Não copie gravações, tokens ou arquivos de autenticação para a pasta do projeto. O `.gitignore` exclui os diretórios locais de dados e modelos.
+
+## Opção A: executar no host
+
+Instale Python 3.12+, `uv`, FFmpeg e `ffprobe` conforme as instruções oficiais da sua plataforma. Confirme que os programas estão disponíveis:
+
+```sh
+python3 --version
+uv --version
+ffmpeg -version
+ffprobe -version
+```
+
+Na raiz do clone, instale as dependências travadas e inicie o servidor:
+
+```sh
+uv sync --locked
 uv run uvicorn app.main:app --host 127.0.0.1 --port 8000
 ```
 
-Abra <http://127.0.0.1:8000>. Importe um arquivo MKV ou MP4, inicie a análise, revise as sugestões e exporte os itens aprovados. O app salva arquivos de trabalho em `data/` e modelos em `models/`; ambos ficam fora do Git.
+Abra <http://127.0.0.1:8000>. `uv` cria o ambiente virtual local em `.venv/`. O servidor fica vinculado a loopback; não o exponha a uma rede não confiável.
 
-A análise vem pré-selecionada com Whisper `medium`. Depois de importar o vídeo, escolha a qualidade no campo **Qualidade da transcrição** antes de clicar em **Analisar gravação**: `tiny`, `base`, `small`, `medium` ou `large-v3`. `large-v3` oferece a maior qualidade entre as opções completas, com maior uso de memória, mais tempo de processamento e um download maior na primeira análise. A escolha fica salva no projeto. A transcrição de nomes próprios e termos técnicos ainda precisa de revisão.
+Para sugestões semânticas, instale e autentique uma das ferramentas suportadas no host:
 
-Depois da transcrição local, o backend chama o OpenCode com `opencode/mimo-v2.6-flash-free` para sugerir remoções e cortes verticais/horizontais. Autentique o OpenCode no host com `opencode auth login`; não há chave de IA para configurar no estúdio. O checkbox de validação visual começa marcado; desmarque-o para enviar somente texto. A tela mostra o motivo, uma citação de evidência e a origem da sugestão. Se o OpenCode falhar, as regras locais ainda produzem sugestões revisáveis. Todas as sugestões continuam pendentes até você revisá-las.
+- OpenCode: instale a [CLI OpenCode](https://opencode.ai/docs/) e autentique com `opencode auth login`.
+- Codex: instale a [CLI Codex](https://developers.openai.com/codex/cli/) e autentique-a. O aplicativo procura a CLI `codex` no `PATH`. Na execução pelo host, defina `CODEX_AUTH_FILE` com o caminho do arquivo `auth.json` da instalação Codex; o padrão interno `/run/secrets/codex-auth.json` é voltado ao contêiner.
 
-O padrão inicial pode ser definido com `WHISPER_MODEL` no ambiente do Compose; por exemplo, `WHISPER_MODEL=large-v3 docker compose up --build`. A escolha feita no projeto prevalece para aquela análise.
+Escolha o provedor em **Configurações → Provedor de análise**. A autenticação não é necessária para iniciar o app; sem ela, a análise semântica fica indisponível e as regras locais continuam produzindo sugestões. O texto da transcrição é enviado ao provedor escolhido; o envio de frames reduzidos depende da opção de validação visual. O vídeo completo permanece local. Consulte [como revisar e exportar](how-to-review.md) para o fluxo de trabalho e seus limites.
 
-Se FFmpeg não estiver instalado, instale o pacote do sistema da sua distribuição e reinicie o aplicativo. O painel de estado informa se `ffmpeg` e `ffprobe` estão disponíveis.
+## Opção B: executar com Docker Compose
 
-## Executar com Docker Compose
+O Compose salva dados persistentes em `data/` e modelos em `models/`. O Makefile mantém o serviço em loopback e usa a porta `8000` por padrão.
 
-Com Docker Desktop ou outro daemon Docker ativo, o Project Gallery pode iniciar e parar o serviço usando os alvos `make start` e `make stop` da raiz. A Gallery passa a porta local reservada por `WEB_PORT`; o Makefile usa o contexto Docker `default` (substituível por `DOCKER_CONTEXT`) e mantém o serviço em loopback. Para iniciar fora da Gallery, execute:
+1. (Opcional) Copie `.env.example` para `.env` e ajuste os caminhos de autenticação se os arquivos do seu host estiverem em locais diferentes. `.env` é ignorado pelo Git.
+2. Para usar análise semântica, instale e autentique OpenCode ou Codex no host. Por padrão, o Compose procura `~/.local/share/opencode/auth.json` e `~/.codex/auth.json`; os caminhos podem ser alterados por `OPENCODE_AUTH_FILE` e `CODEX_AUTH_FILE` no `.env`. Os arquivos são montados como somente leitura.
+3. Inicie a imagem e aguarde o teste de saúde:
 
-```sh
-make start
-```
+   ```sh
+   make start
+   ```
 
-O serviço fica disponível em `http://127.0.0.1:${WEB_PORT:-8000}`. Para encerrar, execute `make stop`; `data/` e `models/` persistem no host. O Compose monta os arquivos de autenticação configurados em `OPENCODE_AUTH_FILE` e `CODEX_AUTH_FILE` como somente leitura. Ajuste os caminhos no `.env`; escolha o executor ativo em `/settings`. A configuração OAuth do YouTube é opcional para análise/exportação e está descrita em [Como conectar o YouTube](how-to-connect-youtube.md).
+4. Abra <http://127.0.0.1:8000>. Encerre o serviço quando terminar:
 
-## Privacidade
+   ```sh
+   make stop
+   ```
 
-O arquivo de vídeo, a transcrição por áudio e a tradução de legendas são processados localmente. Para sugestões semânticas, o backend envia a transcrição com tempos ao executor selecionado: MiMo via OpenCode ou GPT-6 Luna via Codex. Se a validação visual estiver ligada, envia também até 8 frames reduzidos ao mesmo executor; o arquivo de vídeo completo nunca é enviado. O uso segue os limites e condições da conta autenticada no executor selecionado. As sugestões podem conter erros e precisam de revisão. A rede também é usada para baixar modelos na primeira execução e para a integração YouTube se você a configurar. O upload para o YouTube só ocorre depois de selecionar **Aprovar revisão e enviar como privado**.
+Para escolher outra porta, defina `WEB_PORT` nos comandos, por exemplo `WEB_PORT=8010 make start` e `WEB_PORT=8010 make stop`. O Makefile usa o contexto Docker `default`; para outro contexto, defina `DOCKER_CONTEXT`. Para alterar o modelo Whisper padrão de projetos novos, defina `WHISPER_MODEL` antes de iniciar, por exemplo `WHISPER_MODEL=large-v3 make start`. A qualidade também pode ser escolhida por projeto na interface.
 
-## Navegar pelo estúdio
+O arquivo `.env.example` inclui valores para integrar o cliente OAuth do YouTube por ambiente. Para a maioria das instalações, configure a integração pela tela **Configurações → YouTube**; veja [como conectar o YouTube](how-to-connect-youtube.md). OAuth é opcional para análise e exportação.
 
-**Gravações** abre a galeria com busca, filtro, paginação e acesso para renomear projetos. As etapas e abas organizam análise, edição, cortes, legendas e publicação. Consulte [Como revisar e exportar](how-to-review.md) para os controles de revisão. As credenciais do YouTube e a seleção/disponibilidade do provedor de análise aparecem em **Configurações**, acessível também em `/settings`.
+## Dados, modelos e primeira análise
+
+Por padrão, projetos, gravações importadas, exports, configurações e tokens ficam em `data/`; modelos de transcrição e tradução ficam em `models/`. Esses diretórios são ignorados pelo Git. Restrinja o acesso aos dados locais e mantenha backups protegidos. A [referência de configuração](reference-configuration.md) descreve as variáveis e os diretórios.
+
+Escolha o idioma e a qualidade da transcrição ao iniciar a análise. O padrão é Whisper `medium`; opções maiores, como `large-v3`, exigem mais memória, espaço e tempo. A primeira análise baixa o modelo Whisper selecionado. Uma tradução pode baixar pacotes Argos adicionais. Mantenha acesso à internet até que os downloads terminem.
+
+## Verificar disponibilidade e resolver problemas
+
+- Abra `/api/health` no mesmo endereço do estúdio. A resposta informa se FFmpeg e `ffprobe` estão disponíveis, se o YouTube está autorizado e o estado do provedor selecionado.
+- Se a interface indicar FFmpeg indisponível na execução pelo host, instale `ffmpeg` e `ffprobe`, confirme que ambos estão no `PATH` e reinicie o servidor.
+- Se a análise semântica estiver indisponível, confira **Configurações → Provedor de análise** e confirme que a CLI escolhida está instalada e autenticada no host. Para Compose, confira também se o caminho do arquivo de autenticação no `.env` existe antes de iniciar o contêiner.
+- Se a porta padrão estiver ocupada no Compose, escolha outra com `WEB_PORT` para iniciar e parar o serviço.
+- Se o contêiner não iniciar, confirme que o daemon e o plugin Compose estão disponíveis com `docker compose version`; consulte a saída de `docker compose logs post-production`.
+
+## Privacidade e publicação
+
+O áudio é transcrito localmente. Para sugestões semânticas, o aplicativo envia a transcrição com tempos ao provedor escolhido. Com a validação visual habilitada, também envia até o limite de frames reduzidos configurado; nunca envia o vídeo completo. Modelos e pacotes de tradução são baixados para uso local. O upload do YouTube é opcional e exige OAuth e aprovação explícita; os vídeos são enviados como privados. Veja [como conectar o YouTube](how-to-connect-youtube.md) e a [referência de configuração local](reference-configuration.md).

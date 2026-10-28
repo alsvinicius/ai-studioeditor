@@ -6,7 +6,7 @@ Aplicativo local para preparar gravações do OBS: transcrição, revisão de su
 
 ## Começar
 
-Veja [instalação e execução](docs/diataxis/how-to-run.md). Para Docker Compose, use `make start`/`make stop`; requer Docker. Para execução direta, consulte o guia. O app requer Python 3.12+, `uv` e FFmpeg/ffprobe.
+O [guia detalhado de instalação e execução local](docs/diataxis/how-to-run.md) explica os pré-requisitos, dependências, configuração dos provedores e os caminhos para executar no host ou com Docker Compose. Em resumo, a execução no host requer Python 3.12+, `uv` e FFmpeg/ffprobe; Compose requer Docker. Para Compose, use `make start` e `make stop`.
 
 Os projetos, uploads, configurações e exports ficam em `data/` por padrão; configure outro caminho com `APP_DATA_DIR`. Modelos/cache ficam em `models/`. Esses diretórios são locais e ignorados pelo Git. Veja a [referência de configuração local](docs/diataxis/reference-configuration.md) para os diretórios e as variáveis. Os dados locais podem conter mídia, transcrições e credenciais: restrinja permissões e faça backups protegidos. Configure credenciais localmente conforme os guias de [execução](docs/diataxis/how-to-run.md) e [YouTube](docs/diataxis/how-to-connect-youtube.md).
 
