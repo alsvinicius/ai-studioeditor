@@ -1,4 +1,27 @@
-# Documentation index
+# Documentação
+
+Guias de uso organizados por necessidade, seguindo Diátaxis.
+
+## Tutoriais
+
+- [Primeira execução](tutorials/first-run.md): concluir um fluxo básico do estúdio.
+
+## Guias práticos
+
+- [Instalar e executar localmente](how-to/run-locally.md): dependências, provedores opcionais e execução no host ou em Compose.
+- [Revisar e exportar uma gravação](how-to/review-and-export.md): trabalhar com transcrição e sugestões antes de exportar.
+- [Conectar o YouTube](how-to/connect-youtube.md): configurar OAuth e enviar vídeos aprovados como privados.
+- [Testar a importação de gravação com Playwright](how-to/test-new-recording.md): validar o fluxo E2E de importação.
+
+## Referência
+
+- [Configuração local](reference/configuration.md): variáveis e diretórios persistentes.
+
+## Explicações
+
+- [Linguagem visual do estúdio](explanation/interface-design.md): materiais, cores, estados e adaptações da interface.
+
+## Registros de desenvolvimento do produto
 
 ## Product development records
 
@@ -14,6 +37,8 @@
 
 These records are separate from user documentation.
 
-## User documentation (Diátaxis)
+Os registros de produto são separados da documentação para usuários. Os guias acompanham apenas comportamentos implementados com instruções verificáveis.
 
-See [the documentation map](diataxis/README.md). Guides are added when implemented behavior supports accurate instructions. License and redistribution records: [third-party notices](../THIRD_PARTY_NOTICES.md), [Python lock inventory](reference/python-licenses.md), [npm lock inventory](reference/npm-licenses.md), [container build audit](reference/container-build-audit.md), and [Debian package manifest](reference/container-debian-packages.txt).
+## Licenças e redistribuição
+
+[Avisos de terceiros](../THIRD_PARTY_NOTICES.md), [inventário de licenças Python](reference/python-licenses.md), [inventário npm](reference/npm-licenses.md), [auditoria da imagem](reference/container-build-audit.md) e [manifesto de pacotes Debian](reference/container-debian-packages.txt).

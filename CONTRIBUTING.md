@@ -2,7 +2,7 @@
 
 ## Preparação
 
-Requisitos: Python 3.12+, `uv`, FFmpeg e ffprobe. Para Compose, instale Docker. Clone o repositório, configure `.env` a partir de `.env.example` se usar provedores autenticados e inicie com `make start`; encerre com `make stop`. O serviço fica em loopback. Consulte [como executar](docs/diataxis/how-to-run.md) e [configuração do YouTube](docs/diataxis/how-to-connect-youtube.md).
+Requisitos: Python 3.12+, `uv`, FFmpeg e ffprobe. Para Compose, instale Docker. Clone o repositório, configure `.env` a partir de `.env.example` se usar provedores autenticados e inicie com `make start`; encerre com `make stop`. O serviço fica em loopback. Consulte [como executar](docs/how-to/run-locally.md) e [configuração do YouTube](docs/how-to/connect-youtube.md).
 
 ## Mudanças
 
@@ -12,7 +12,7 @@ Leia o [plano de implementação](docs/planning/implementation-plan.md) e os req
 
 - `uv run --extra test python -m unittest discover -s tests`
 - `node --check app/static/app.js`
-- Para E2E, siga [o guia Playwright](docs/diataxis/how-to-test-new-recording.md).
+- Para E2E, siga [o guia Playwright](docs/how-to/test-new-recording.md).
 
 Não declare integrações com YouTube, OpenCode ou Codex validadas sem execução autorizada e evidência reproduzível.
 

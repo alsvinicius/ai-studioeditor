@@ -44,4 +44,4 @@ Essa seleção reúne idiomas de alcance amplo em vídeo e cursos, com base nas 
 
 ## Conferir e preparar a publicação
 
-Após a exportação, use o seletor na prévia para alternar entre a gravação original e a edição exportada. A aba **Publicação** reúne os arquivos para download, seleção de vídeos e metadados de YouTube. A conexão do canal é global e fica em [Configurações](how-to-connect-youtube.md); a aprovação do envio continua em cada projeto.
+Após a exportação, use o seletor na prévia para alternar entre a gravação original e a edição exportada. A aba **Publicação** reúne os arquivos para download, seleção de vídeos e metadados de YouTube. A conexão do canal é global e fica em [Configurações](connect-youtube.md); a aprovação do envio continua em cada projeto.

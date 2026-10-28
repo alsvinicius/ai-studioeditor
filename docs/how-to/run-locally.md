@@ -54,7 +54,7 @@ Para sugestões semânticas, instale e autentique uma das ferramentas suportadas
 - OpenCode: instale a [CLI OpenCode](https://opencode.ai/docs/) e autentique com `opencode auth login`.
 - Codex: instale a [CLI Codex](https://developers.openai.com/codex/cli/) e autentique-a. O aplicativo procura a CLI `codex` no `PATH`. Na execução pelo host, defina `CODEX_AUTH_FILE` com o caminho do arquivo `auth.json` da instalação Codex; o padrão interno `/run/secrets/codex-auth.json` é voltado ao contêiner.
 
-Escolha o provedor em **Configurações → Provedor de análise**. A autenticação não é necessária para iniciar o app; sem ela, a análise semântica fica indisponível e as regras locais continuam produzindo sugestões. O texto da transcrição é enviado ao provedor escolhido; o envio de frames reduzidos depende da opção de validação visual. O vídeo completo permanece local. Consulte [como revisar e exportar](how-to-review.md) para o fluxo de trabalho e seus limites.
+Escolha o provedor em **Configurações → Provedor de análise**. A autenticação não é necessária para iniciar o app; sem ela, a análise semântica fica indisponível e as regras locais continuam produzindo sugestões. O texto da transcrição é enviado ao provedor escolhido; o envio de frames reduzidos depende da opção de validação visual. O vídeo completo permanece local. Consulte [como revisar e exportar](review-and-export.md) para o fluxo de trabalho e seus limites.
 
 ## Opção B: executar com Docker Compose
 
@@ -76,11 +76,11 @@ O Compose salva dados persistentes em `data/` e modelos em `models/`. O Makefile
 
 Para escolher outra porta, defina `WEB_PORT` nos comandos, por exemplo `WEB_PORT=8010 make start` e `WEB_PORT=8010 make stop`. O Makefile usa o contexto Docker `default`; para outro contexto, defina `DOCKER_CONTEXT`. Para alterar o modelo Whisper padrão de projetos novos, defina `WHISPER_MODEL` antes de iniciar, por exemplo `WHISPER_MODEL=large-v3 make start`. A qualidade também pode ser escolhida por projeto na interface.
 
-O arquivo `.env.example` inclui valores para integrar o cliente OAuth do YouTube por ambiente. Para a maioria das instalações, configure a integração pela tela **Configurações → YouTube**; veja [como conectar o YouTube](how-to-connect-youtube.md). OAuth é opcional para análise e exportação.
+O arquivo `.env.example` inclui valores para integrar o cliente OAuth do YouTube por ambiente. Para a maioria das instalações, configure a integração pela tela **Configurações → YouTube**; veja [como conectar o YouTube](connect-youtube.md). OAuth é opcional para análise e exportação.
 
 ## Dados, modelos e primeira análise
 
-Por padrão, projetos, gravações importadas, exports, configurações e tokens ficam em `data/`; modelos de transcrição e tradução ficam em `models/`. Esses diretórios são ignorados pelo Git. Restrinja o acesso aos dados locais e mantenha backups protegidos. A [referência de configuração](reference-configuration.md) descreve as variáveis e os diretórios.
+Por padrão, projetos, gravações importadas, exports, configurações e tokens ficam em `data/`; modelos de transcrição e tradução ficam em `models/`. Esses diretórios são ignorados pelo Git. Restrinja o acesso aos dados locais e mantenha backups protegidos. A [referência de configuração](../reference/configuration.md) descreve as variáveis e os diretórios.
 
 Escolha o idioma e a qualidade da transcrição ao iniciar a análise. O padrão é Whisper `medium`; opções maiores, como `large-v3`, exigem mais memória, espaço e tempo. A primeira análise baixa o modelo Whisper selecionado. Uma tradução pode baixar pacotes Argos adicionais. Mantenha acesso à internet até que os downloads terminem.
 
@@ -94,4 +94,4 @@ Escolha o idioma e a qualidade da transcrição ao iniciar a análise. O padrão
 
 ## Privacidade e publicação
 
-O áudio é transcrito localmente. Para sugestões semânticas, o aplicativo envia a transcrição com tempos ao provedor escolhido. Com a validação visual habilitada, também envia até o limite de frames reduzidos configurado; nunca envia o vídeo completo. Modelos e pacotes de tradução são baixados para uso local. O upload do YouTube é opcional e exige OAuth e aprovação explícita; os vídeos são enviados como privados. Veja [como conectar o YouTube](how-to-connect-youtube.md) e a [referência de configuração local](reference-configuration.md).
+O áudio é transcrito localmente. Para sugestões semânticas, o aplicativo envia a transcrição com tempos ao provedor escolhido. Com a validação visual habilitada, também envia até o limite de frames reduzidos configurado; nunca envia o vídeo completo. Modelos e pacotes de tradução são baixados para uso local. O upload do YouTube é opcional e exige OAuth e aprovação explícita; os vídeos são enviados como privados. Veja [como conectar o YouTube](connect-youtube.md) e a [referência de configuração local](../reference/configuration.md).
